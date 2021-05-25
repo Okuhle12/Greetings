@@ -41,6 +41,32 @@ body{
 .displayMessage{
     text-align: center;
     font-size: 20px;
+    font-weight: bolder;
     margin:auto;
     margin-top:20px;
+}
+
+.tag {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    margin:auto;
+    margin-top:20px;
+    margin-bottom: 30px;
+}
+
+.errors{
+    text-align: center;
+    font-size: 15px;
+    color: red;
+    margin:auto;
+}
+
+.displayCounter {
+    font-size: large;
+    margin-left: 340px;
+    font-weight: bolder;
+    margin-top: -20px ;
+ 
 }

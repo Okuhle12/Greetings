@@ -15,13 +15,17 @@
 <br>
 <br>
 <div class="textBox">
-    <p> Please enter name</p>
+    <p class="tag"> Welcome to my greeting App, please enter name and select a language</p>
+    <p class="errors"></p>
+    <br>
     <label for="fname">Name:</label>
-    <input type="text" id="fname" name="fname" class="box" placeholder="enter your name"><br><br>
+    <input type="text" id="fname" name="fname" class="box" placeholder="enter your name"><label style="margin-left: 10px ; color: darkgrey; font-weight: bolder;" for="">Counter:</label><div class ="displayCounter"></div><br><br>
     <!-- Radio buttons -->
+    <br>
+  
     
 
-    <p>Please select language</p>
+   
     <input type="radio" id="English" class="eng" name="language" value="English" >English 
     <!-- <label for="English">English</label><br> -->
     <input type="radio" id="Isixhosa" class="isi" name="language" value="Isixhosa" >Isixhosa 
@@ -31,15 +35,18 @@
 
     <br>
     <br>
+    <br>
 
 
 
     <button class="but">Greet me</button>
+    <button class="clear">Reset Counter</button>
     
     <!-- <input type="reset" class="reset" value="Reset">  -->
 
 </div>
 <div class="displayMessage"> </div>
+
 <!-- <div class="textBox"> 
 
 <form name ="enter name"  method="GET">
@@ -52,6 +59,8 @@ French: <input type="radio" name="Language" value="French">
 </form>
 </div> -->
 
+
+<script src="./greet_factory.js" charset="utf-8"></script>
 <script src="./greet.js" charset="utf-8"></script>
     
 </body>
