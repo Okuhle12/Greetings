@@ -137,6 +137,7 @@ var countingCounter = 0;
         
         
         }
+        checkedGreetBtn.checked = false 
 
     //for clearing my text input box
 
@@ -150,6 +151,8 @@ var countingCounter = 0;
     //for unchecking my button
 
     document.querySelector(".eng").checked= false;
+    document.querySelector(".isi").checked= false;
+    document.querySelector(".fren").checked= false;
 }
 
 function resetCounter() {
@@ -161,6 +164,12 @@ function resetCounter() {
     displayCounterElem.innerHTML = 0;
     localStorage['countingCounter'] = 0;
     displayText.innerHTML = "";
+    document.querySelector(".eng").checked= false;
+    document.querySelector(".isi").checked= false;
+    document.querySelector(".fren").checked= false;
+    
+
+
 
 }
 
