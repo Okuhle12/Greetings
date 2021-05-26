@@ -67,6 +67,7 @@ var countingCounter = 0;
 
      return;
     //  displayText.innerHTML = "";
+    // hhhh
 
        
         
