@@ -88,7 +88,7 @@ assert.equal("Hello, Zusiphe", greets.greet_('English', 'zUSIPhe'));
 
   assert.equal("Bonjour, Leeeh", greets.greet_('French', 'LeeeH'));
   });
-  it('Should return error message when a character contains numbers and strings', function(){
+  it('Should return "invalid name" when a character greeted contains numbers and string', function(){
 
     let greets = greetExerciseFactory();
 
@@ -100,7 +100,7 @@ assert.equal("invalid name", greets.greet_("English", "amanda2222"));
 
 });
 
-it('Should return error message when a character contains numbers and strings', function(){
+it('Should return "invalid name" when a character greeted contains numbers and strings', function(){
 
     let greets = greetExerciseFactory();
 
@@ -110,7 +110,7 @@ assert.equal("invalid name", greets.greet_("English", "kulo5555222255222!!!!!1*"
 
 });
 
-it('Should return error message when a character contains numbers and strings', function(){
+it('Should return "invalid name" when a character greeted contains numbers and string', function(){
 
     let greets = greetExerciseFactory();
 
@@ -187,7 +187,7 @@ assert.equal("invalid name", greets.greet_("English", "Noloyiso897&&&%"));
 describe('Error Messages', function(){
     
 
-    it('Should be able to return "Please enter your name and select langauge"when no name is typed in the text box and no language is selected', function(){
+    it('Should be able to return an error message that says "Please enter your name and select langauge" when no name is typed in the text box and no language is selected', function(){
 
         let greets = greetExerciseFactory();
 
@@ -196,7 +196,7 @@ describe('Error Messages', function(){
     assert.equal("Please enter your name and select langauge", greets.errorMessage(null, ""));
     
 })
-it('Should be able to return "Please select langauge" When no language is selected and name is entered in the text box', function(){
+it('Should be able to return an error message that says "Please select langauge" When no language is selected and name is entered in the text box', function(){
 
     let greets = greetExerciseFactory();
 
@@ -204,7 +204,7 @@ it('Should be able to return "Please select langauge" When no language is select
 
 assert.equal("Please select langauge", greets.errorMessage(null, "Amanda"));
 })
-it('Should be able to return "Please enter your name" When language is selected and  no name is entered in the text box', function(){
+it('Should be able to return an error message that says "Please enter your name" When language is selected and  no name is entered in the text box', function(){
 
     let greets = greetExerciseFactory();
 
