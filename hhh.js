@@ -3,7 +3,11 @@
 var buttonGreetElem = document.querySelector(".but");
 var resetGreetElem = document.querySelector(".clear");
 
-var nameValue = document.querySelector(".box");
+var nameValue = document.querySelector("textArea").value;
+
+
+
+
 var displayText = document.querySelector(".displayMessage");
 var displayCounterElem = document.querySelector(".displayCounter");
 var erroMsgElement = document.querySelector(".errors")
@@ -18,7 +22,8 @@ var countingCounter = 0;
 var instanceGreet = greetExerciseFactory();
 
  function greetings(){
-    var namesGreeted = nameValue.value;
+    //var namesGreeted = nameValue.value;
+  
 
     
 
@@ -40,60 +45,62 @@ var instanceGreet = greetExerciseFactory();
     
 
    
-    if (checkedGreetBtn === null && namesGreeted==""){
-       //please enter your name and select language
+    // if (checkedGreetBtn === null && namesGreeted==""){
+    //    //please enter your name and select language
       
-     erroMsgElement.innerHTML = "Please enter your name and select langauge";
-     displayCounterElem.innerHTML = instanceGreet.Counterr();
-     localStorage['countingCounter'] = instanceGreet.Counterr();
+    //  erroMsgElement.innerHTML = "Please enter your name and select langauge";
 
-       setTimeout(function(){
-        erroMsgElement.innerHTML = ""  
-       }, 2000);
-       return;
+    //    setTimeout(function(){
+    //     erroMsgElement.innerHTML = ""  
+    //    }, 2000);
+    //    displayCounterElem.innerHTML = instanceGreet.countingCounter;
+    //    return;
 
-    }else if(!checkedGreetBtn){
+    // }else if(!checkedGreetBtn){
        
 
-     erroMsgElement.innerHTML = "Please select langauge" ;
-     displayCounterElem.innerHTML = instanceGreet.Counterr();
-     localStorage['countingCounter'] = instanceGreet.Counterr();
+    //  erroMsgElement.innerHTML = "Please select langauge" ;
 
-        setTimeout(function(){
-           erroMsgElement.innerHTML = ""  
-           }, 2000);
-           return;
-    }else if(namesGreeted== ""){
-        //please enter name
-     erroMsgElement.innerHTML = "Please enter your name";
-     displayCounterElem.innerHTML = instanceGreet.Counterr();
-     localStorage['countingCounter'] = instanceGreet.Counterr();
+    //     setTimeout(function(){
+    //        erroMsgElement.innerHTML = ""  
+    //        }, 2000);
+    //        displayCounterElem.innerHTML = instanceGreet.countingCounter;
+    //        return;
+    // }else if(namesGreeted== ""){
+    //     //please enter name
+    //  erroMsgElement.innerHTML = "Please enter your name";
 
-     setTimeout(function(){
-        erroMsgElement.innerHTML = ""  
-       }, 2000);
+    //  setTimeout(function(){
+    //     erroMsgElement.innerHTML = ""  
+    //    }, 2000);
 
-       
-     return;
-    //  displayText.innerHTML = "";
-    // hhhh
+    //    displayCounterElem.innerHTML = instanceGreet.countingCounter;
+    //  return;
+     
+    // //  displayText.innerHTML = ""; undo///////////////////////////////////////////
+    // // hhhh
 
        
         
-    }
+    // }
     // else if(!namesGreeted==""){
     //     alert("not")
     //     return
     // }
     if(checkedGreetBtn){
+        var language = checkedGreetBtn.value;
+        alert(nameValue)
+        alert(language)
 
         //this help the app not to count one name twice when the name is greeted more than once
 
-        var lowerCase = namesGreeted.toLowerCase();
-        var upperCase = lowerCase.charAt(0).toUpperCase();
-        var deleteCharacter = lowerCase.slice(1);
-        var newName = upperCase + deleteCharacter;
+        // var lowerCase = namesGreeted.toLowerCase();
+        // var upperCase = lowerCase.charAt(0).toUpperCase();
+        // var deleteCharacter = lowerCase.slice(1);
+        // var newName = upperCase + deleteCharacter;
 
+
+        displayText.innerHTML = instanceGreet.greet_(language, nameValue)
 
             // if(checkedGreetBtn.value === "English"){
             //     displayText.innerHTML = "Hello, " + newName;
@@ -115,11 +122,8 @@ var instanceGreet = greetExerciseFactory();
         //write it on the factory function
         
 
-        displayText.innerHTML = instanceGreet.greet_(checkedGreetBtn.value, nameValue.value)
-         displayCounterElem.innerHTML = instanceGreet.Counterr();
-        localStorage['countingCounter'] = instanceGreet.Counterr();
+     
 
-        namesGreeted.value = "";
     
         // if(checkedGreetBtn.value === "English"){
         //     displayText.innerHTML = "Hello, " + newName;
@@ -152,11 +156,10 @@ var instanceGreet = greetExerciseFactory();
 
     //for clearing my text input box
 
-     document.querySelector(".box").value= "";
-      console.log( document.querySelector(".box").value)
+     document.querySelector(".textArea").value= "";
+      
 
         //namesGreeted.value = "";
-        console.log(namesGreeted.value);
         // displayText.innerHTML = "";
 
     //for unchecking my button
@@ -174,8 +177,6 @@ function resetCounter() {
     // namesValue.value = "";
     displayCounterElem.innerHTML = 0;
     localStorage['countingCounter'] = 0;
-    localStorage.removeItem("countingCounter")
-    localStorage.clear()
     displayText.innerHTML = "";
     document.querySelector(".eng").checked= false;
     document.querySelector(".isi").checked= false;
