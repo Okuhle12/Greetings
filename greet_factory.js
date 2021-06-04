@@ -1,5 +1,7 @@
 
 function greetExerciseFactory(){
+
+    var regex = /^[A-Za-z ]+$/;
     
     var namesArr = [];
     
@@ -55,7 +57,7 @@ function nameSet(name){
 }
 
 function errorMessage(language, name){
-   
+    
     if (language === null && name ==""){
     return "Please enter your name and select langauge"
         
@@ -66,15 +68,18 @@ function errorMessage(language, name){
    
      }else if(!name){
          return "Please enter your name"
-       
-        
-         
+  
      }
+     
+
+    else if (!regex.test(name)){
+         return "invalid name"
+        }
 
 
 
 
-    }
+}
 
 
 

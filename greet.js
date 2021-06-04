@@ -8,7 +8,7 @@ var displayText = document.querySelector(".displayMessage");
 var displayCounterElem = document.querySelector(".displayCounter");
 var erroMsgElement = document.querySelector(".errors")
 
-
+var regex = /^[A-Za-z ]+$/;
 //empty array to store greeted names
 var names = [];
 
@@ -26,6 +26,7 @@ var instanceGreet = greetExerciseFactory();
     //set counter to the value in localStorage if it's already there
     
     if (localStorage['countingCounter']){
+        
         //make countingCounter equal to the value already stored in localStorage
     
         countingCounter = localStorage['countingCounter']
@@ -41,6 +42,7 @@ var instanceGreet = greetExerciseFactory();
 
    
     if (checkedGreetBtn === null && namesGreeted==""){
+        
        //please enter your name and select language
       
      erroMsgElement.innerHTML = "Please enter your name and select langauge";
@@ -51,6 +53,8 @@ var instanceGreet = greetExerciseFactory();
         erroMsgElement.innerHTML = ""  
        }, 2000);
        return;
+
+      
 
     }else if(!checkedGreetBtn){
        
@@ -81,6 +85,18 @@ var instanceGreet = greetExerciseFactory();
        
         
     }
+
+    else if (!regex.test(namesGreeted)){
+        erroMsgElement.innerHTML = "invalid name"
+        displayCounterElem.innerHTML = instanceGreet.Counterr();
+        localStorage['countingCounter'] = instanceGreet.Counterr();
+
+
+        setTimeout(function(){
+            erroMsgElement.innerHTML = ""  
+           }, 2000);
+           return;
+       }
     // else if(!namesGreeted==""){
     //     alert("not")
     //     return
@@ -94,26 +110,7 @@ var instanceGreet = greetExerciseFactory();
         var deleteCharacter = lowerCase.slice(1);
         var newName = upperCase + deleteCharacter;
 
-
-            // if(checkedGreetBtn.value === "English"){
-            //     displayText.innerHTML = "Hello, " + newName;
-            // }
-              
-            // if (checkedGreetBtn.value === "Isixhosa"){
-            //     displayText.innerHTML = "Molo, " + newName;
-            // }
     
-            // if(checkedGreetBtn.value ==="French"){
-            //     displayText.innerHTML = "Bonjour," + newName;
-              
-            // }
-
-            // return;
-     
-
-        
-        //write it on the factory function
-        
 
         displayText.innerHTML = instanceGreet.greet_(checkedGreetBtn.value, nameValue.value)
          displayCounterElem.innerHTML = instanceGreet.Counterr();
@@ -121,30 +118,30 @@ var instanceGreet = greetExerciseFactory();
 
         namesGreeted.value = "";
     
-        // if(checkedGreetBtn.value === "English"){
-        //     displayText.innerHTML = "Hello, " + newName;
-        //     names.push(newName)
+        if(checkedGreetBtn.value === "English"){
+            displayText.innerHTML = "Hello, " + newName;
+            names.push(newName)
             
-        // }
+        }
           
-        // if (checkedGreetBtn.value === "Isixhosa"){
-        //     displayText.innerHTML = "Molo, " + newName;
-        //     names.push(namesGreeted)
+        if (checkedGreetBtn.value === "Isixhosa"){
+            displayText.innerHTML = "Molo, " + newName;
+            names.push(namesGreeted)
             
-        // }
+        }
 
-        // if(checkedGreetBtn.value ==="French"){
-        //     displayText.innerHTML = "Bonjour, " + newName;
-        //     names.push(namesGreeted)
+        if(checkedGreetBtn.value ==="French"){
+            displayText.innerHTML = "Bonjour, " + newName;
+            names.push(namesGreeted)
             
           
-        // }
+        }
        
-        // // countingCounter++;
-        // displayCounterElem.innerHTML = instanceGreet.Counterr();
-        // localStorage['countingCounter'] = instanceGreet.Counterr();
+        // countingCounter++;
+        displayCounterElem.innerHTML = instanceGreet.Counterr();
+        localStorage['countingCounter'] = instanceGreet.Counterr();
 
-        // namesGreeted.value = "";
+        namesGreeted.value = "";
         
         
         }
@@ -159,16 +156,25 @@ var instanceGreet = greetExerciseFactory();
         console.log(namesGreeted.value);
         // displayText.innerHTML = "";
 
-    //for unchecking my button
+    //for unchecking my buttons
 
     document.querySelector(".eng").checked= false;
     document.querySelector(".isi").checked= false;
     document.querySelector(".fren").checked= false;
 }
 
-function resetCounter() {
+  // for resetting my counter
 
-   
+function resetCounter() {
+    setTimeout(function(){
+        // erroMsgElement.innerHTML = "local storage resetted"
+        location.reload()  
+       }, 2000);
+
+       setTimeout(function(){
+        erroMsgElement.innerHTML = "Local storage has been resetted"
+        // location.reload()  
+       }, 1000);
 
     countingCounter = 0;
     // namesValue.value = "";
@@ -177,11 +183,11 @@ function resetCounter() {
     localStorage.removeItem("countingCounter")
     localStorage.clear()
     displayText.innerHTML = "";
+   
     document.querySelector(".eng").checked= false;
     document.querySelector(".isi").checked= false;
     document.querySelector(".fren").checked= false;
-    //to uncheck my error messages
-    
+   
 
 
 
