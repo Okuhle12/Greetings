@@ -1,9 +1,9 @@
 
-function greetExerciseFactory(){
+function greetExerciseFactory(listName){
 
     var regex = /^[A-Za-z ]+$/;
     
-    var namesArr = [];
+    var namesArr = [] || listName;
     
 
 function greet_(language,names_){
@@ -111,6 +111,10 @@ function Counterr(){
      
 }
 
+function getName (){
+    return namesArr;
+}
+
 
 
     return{
@@ -119,6 +123,7 @@ function Counterr(){
         Counterr,
         greet_,
         errorMessage,
+        getName
     }
 
 }

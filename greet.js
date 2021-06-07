@@ -6,19 +6,36 @@ var resetGreetElem = document.querySelector(".clear");
 var nameValue = document.querySelector(".box");
 var displayText = document.querySelector(".displayMessage");
 var displayCounterElem = document.querySelector(".displayCounter");
-var erroMsgElement = document.querySelector(".errors")
+var erroMsgElement = document.querySelector(".errors");
+var eriMessageElement = document.querySelector(".eri");
+
 
 var regex = /^[A-Za-z ]+$/;
 //empty array to store greeted names
 var names = [];
 
+var listNames;
+
+if (localStorage['name']){
+    listNames = JSON.parse(localStorage.getItem('name'));
+}
+
+if (localStorage[''])
+
 //declare your counter and assign it to 0
-var countingCounter = 0;
+var countingCounter =0;
 
 var instanceGreet = greetExerciseFactory();
 
+if(listNames){
+
+    displayCounterElem.innerHTML = listNames.length
+}
+
  function greetings(){
     var namesGreeted = nameValue.value;
+
+    let countingCounter;
 
     
 
@@ -87,9 +104,10 @@ var instanceGreet = greetExerciseFactory();
     }
 
     else if (!regex.test(namesGreeted)){
-        erroMsgElement.innerHTML = "invalid name"
+        erroMsgElement.innerHTML = "Please enter invalid name i.e Amanda"
         displayCounterElem.innerHTML = instanceGreet.Counterr();
         localStorage['countingCounter'] = instanceGreet.Counterr();
+
 
 
         setTimeout(function(){
@@ -113,8 +131,10 @@ var instanceGreet = greetExerciseFactory();
     
 
         displayText.innerHTML = instanceGreet.greet_(checkedGreetBtn.value, nameValue.value)
+        localStorage.setItem('name', JSON.stringify(instanceGreet.getName()));
          displayCounterElem.innerHTML = instanceGreet.Counterr();
         localStorage['countingCounter'] = instanceGreet.Counterr();
+        
 
         namesGreeted.value = "";
     
@@ -126,13 +146,13 @@ var instanceGreet = greetExerciseFactory();
           
         if (checkedGreetBtn.value === "Isixhosa"){
             displayText.innerHTML = "Molo, " + newName;
-            names.push(namesGreeted)
+            names.push(newName)
             
         }
 
         if(checkedGreetBtn.value ==="French"){
             displayText.innerHTML = "Bonjour, " + newName;
-            names.push(namesGreeted)
+            names.push(newName)
             
           
         }
@@ -172,7 +192,7 @@ function resetCounter() {
        }, 2000);
 
        setTimeout(function(){
-        erroMsgElement.innerHTML = "Local storage has been resetted"
+        eriMessageElement.innerHTML = "Local storage has been resetted"
         // location.reload()  
        }, 1000);
 
